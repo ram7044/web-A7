@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musafir Cafe</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8f0e3;
+    color: #3d2920;
+}
+
+header {
+    height: 85vh;
+    background: linear-gradient(#0005, #0008),
+    url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1600&q=80')
+    center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 22px;
+    text-align: center;
+    background: #21150b99;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+}
+
+header h1 {
+    font-size: 65px;
+    letter-spacing: 4px;
+}
+
+header p {
+    font-size: 20px;
+    margin: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 15px;
+    background: #d89b55;
+    color: #24170e;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+section {
+    padding: 55px 8%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.intro {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px #0002;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 15px 0 8px;
+}
+
+.card p {
+    padding: 0 15px;
+    line-height: 1.5;
+}
+
+.price {
+    display: block;
+    color: #a45d25;
+    font-weight: bold;
+    padding: 12px;
+}
+
+#about {
+    background: #e9d5b8;
+}
+
+footer {
+    background: #302016;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+@media(max-width: 600px) {
+    header h1 { font-size: 40px; }
+    nav a { margin: 5px; font-size: 13px; }
+    section { padding: 40px 5%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Our Menu</a>
+        <a href="#about">About Us</a>
+    </nav>
+
+    <h1 id="home">MUSAFIR CAFE</h1>
+    <p>Every cup has a story, every journey a taste.</p>
+    <a href="#menu" class="btn">Explore Our Menu</a>
+</header>
+
+<section>
+    <h2>Welcome, Fellow Traveller!</h2>
+    <p class="intro">
+        Some journeys are measured in miles, others in memories.
+        At Musafir Cafe, enjoy delicious food, freshly brewed coffee,
+        warm hospitality and a peaceful place to pause your journey.
+    </p>
+</section>
+
+<section id="menu">
+    <h2>Our Special Menu</h2>
+    <p>A little taste of happiness for every traveller.</p>
+
+    <div class="menu">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Coffee">
+            <h3>Traveller's Coffee</h3>
+            <p>Freshly brewed coffee to refresh your soul.</p>
+            <span class="price">₹120</span>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Croissant">
+            <h3>French Croissant</h3>
+            <p>Crispy, buttery and perfect with your coffee.</p>
+            <span class="price">₹150</span>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Pizza">
+            <h3>Italian Pizza</h3>
+            <p>Cheesy goodness with fresh and tasty toppings.</p>
+            <span class="price">₹249</span>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Chocolate Cake">
+            <h3>Chocolate Delight</h3>
+            <p>A rich chocolate treat for your sweet cravings.</p>
+            <span class="price">₹180</span>
+        </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <h2>More Than Just A Cafe</h2>
+    <p class="intro">
+        At Musafir Cafe, we believe food brings people together.
+        From aromatic coffee to delicious snacks and desserts,
+        we serve quality, comfort and unforgettable moments.
+        Come as a traveller, leave as a friend!
+    </p>
+    <a href="mailto:hello@musafircafe.com" class="btn">Contact Us</a>
+</section>
+
+<footer>
+    <h3>☕ MUSAFIR CAFE</h3>
+    <p>Good Food. Great Stories. Beautiful Journeys.</p>
+    <p>© 2026 Musafir Cafe | Made with Love</p>
+</footer>
+
+</body>
+</html>

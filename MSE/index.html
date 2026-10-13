@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EaseIt Grocery Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>EaseIt</h1>
+        <p>Delivery in 10 minutes</p>
+    </div>
+
+<!-- Search Bar, Cart and Login -->
+<div class="search">
+    <input type="text" id="search-bar" placeholder="Search for groceries">
+
+<button onclick="searchProducts()">Search</button>
+
+    <button class="cart-button" title="No items in cart">
+        🛒 Cart (<span id="cart-count">0</span>)
+    </button>
+
+    <a href="loginform.html" class="login-button">Login</a>
+</div>
+
+
+    <!-- Banner -->
+    <div class="banner">
+        <h2>Fresh Groceries at Your Doorstep!</h2>
+        <p>Shop daily essentials at affordable prices.</p>
+        <button onclick="document.getElementById('shopping').scrollIntoView({behavior: 'smooth'})">
+    Shop Now
+</button>
+    </div>
+
+    <!-- Categories -->
+    <h2 class="heading" id="shopping">Shop by Category</h2>
+
+    <div class="categories">
+
+        <div class="category" data-name="fruits">
+            <h2>🍎</h2>
+            <p>Fruits</p>
+        </div>
+
+        <div class="category" data-name="vegetables">
+            <h2>🥦</h2>
+            <p>Vegetables</p>
+        </div>
+
+        <div class="category" data-name="dairy">
+            <h2>🥛</h2>
+            <p>Dairy</p>
+        </div>
+
+        <div class="category" data-name="snacks">
+            <h2>🍪</h2>
+            <p>Snacks</p>
+        </div>
+
+    </div>
+
+    <!-- Products -->
+    <h2 class="heading">Popular Products</h2>
+
+    <div class="products">
+
+        <div class="product" data-name="apples">
+            <h2>🍎</h2>
+            <h3>Fresh Apples</h3>
+            <p>1 kg</p>
+            <h3>₹120</h3>
+            <button onclick="addToCart('apples', 120)">Add +</button>
+        </div>
+
+        <div class="product" data-name="milk">
+            <h2>🥛</h2>
+            <h3>Fresh Milk</h3>
+            <p>500 ml</p>
+            <h3>₹30</h3>
+            <button onclick="addToCart('milk', 30)">Add +</button>
+        </div>
+
+        <div class="product" data-name="bread">
+            <h2>🍞</h2>
+            <h3>Brown Bread</h3>
+            <p>400 g</p>
+            <h3>₹45</h3>
+            <button onclick="addToCart('bread', 45)">Add +</button>
+        </div>
+
+        <div class="product" data-name="bananas">
+            <h2>🍌</h2>
+            <h3>Bananas</h3>
+            <p>1 dozen</p>
+            <h3>₹50</h3>
+            <button onclick="addToCart('bananas', 50)">Add +</button>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2>EaseIt</h2>
+        <p>Freshness delivered to your doorstep.</p>
+        <p> by Ram Agarwal </p>
+    </div>
+
+        <script>
+        function searchProducts() {
+    let input = document.getElementById("search-bar");
+    let searchText = input.value.toLowerCase().trim();
+
+    let products = document.querySelectorAll(".product");
+    let found = false;
+
+    products.forEach(function(product) {
+        let name = product.getAttribute("data-name");
+
+        if (name.includes(searchText) && searchText !== "") {
+            product.style.display = "block";
+
+            if (!found) {
+                product.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }
+
+            found = true;
+        } else {
+            product.style.display = "none";
+        }
+    });
+
+    if (!found) {
+        alert("No matching products found!");
+    }
+}
+
+// Search when Enter is pressed
+document.getElementById("search-bar").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        searchProducts();
+    }
+});
+// Store cart items
+let cart = [];
+
+function addToCart(name, price) {
+    let item = cart.find(product => product.name === name);
+
+    if (item) {
+        item.quantity++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    updateCartCount();
+    alert(name + " added to cart!");
+}
+
+function updateCartCount() {
+    let count = 0;
+
+    cart.forEach(function(item) {
+        count += item.quantity;
+    });
+
+    document.getElementById("cart-count").textContent = count;
+}
+
+function showCart() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    let message = "YOUR EASEIT CART\n\n";
+    let total = 0;
+
+    cart.forEach(function(item) {
+        let subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        message += item.name + " x " + item.quantity
+            + " = ₹" + subtotal + "\n";
+    });
+
+    message += "\nTotal Amount: ₹" + total;
+
+    alert(message);
+}
+    </script>
+
+</body>
+</html>

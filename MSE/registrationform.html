@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EaseIt | Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="registration-container">
+
+        <div class="logo">EaseIt</div>
+        <p class="tagline">Freshness delivered to your doorstep.</p>
+
+        <h2>Create Your Account</h2>
+
+        <form action="loginform.html" method="get" autocomplete="on">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-options">
+                    <label>
+                        <input type="radio" name="gender" value="male" required>
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female">
+                        Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="other">
+                        Other
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age"
+                       placeholder="Enter your age" min="1" max="120" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Create Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a strong password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
+                    title="Minimum 8 characters, including uppercase, lowercase, number and special character"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn submit-btn">
+                Create Account
+            </button>
+
+            <button type="reset" class="btn reset-btn">
+                Reset Form
+            </button>
+
+        </form>
+
+        <button class="btn login-btn"
+                onclick="window.location.href='loginform.html'">
+            Already have an account? Login
+        </button>
+
+        <p class="footer">
+            © 2026 EaseIt Grocery Store
+        </p>
+
+    </div>
+
+</body>
+</html>
